@@ -10,41 +10,33 @@ The function implements the two-stage false discovery rate control for more powe
 ## Installation 
 ### Please install mosek first 
 
-** Following instruction is for macOS. For other systems, change names accordingly. **
-
+** Following instruction is for macOS/Linux. For other systems, change names accordingly. **
 
 ```
 The following instruction was modified from
 https://docs.mosek.com/9.2/install/installation.html
 https://gist.github.com/mikelove/67ea44d5be5a053e599257fe357483dc
 
-1) Download mosek from here (** please download version 8 **):
-https://www.mosek.com/downloads/list/8/
+1) Download mosek from here (** Please download version 9.2.14 **):
+https://www.mosek.com/downloads/
 (I downloaded this to my ~/bin)
 
 cd ~/bin
-tar -xvf mosektoolsosx64x86.tar.bz2
+tar -xvf mosektoolslinux64x86.tar.bz2
 
-2) Add this to your ~/.bashrc
-export PATH=$PATH:~/bin/mosek/8/tools/platform/osx64x86/bin
-
-3) Get academic license:
+2) Get academic license:
 https://www.mosek.com/products/academic-licenses/
-Check email, put licsense file in ~/mosek
+Check email, put licsense file at: ~/mosek/mosek.lic
 (You need to create ~/mosek directory)
 
-4) Install:
+3) Install:
 
-export PKG_MOSEKHOME=~/bin/mosek/8/tools/platform/osx64x86
-export PKG_MOSEKLIB=mosek64
-
-5) For macOS Catalina, run "xattr -dr com.apple.quarantine mosek" to 
-prevent security exceptions.
-
-Then in R:
-install.packages("Rmosek", type="source", INSTALL_opts="--no-multiarch", 
-repos="http://download.mosek.com/R/8")
-
+install.packages("Rmosek")
+library("Rmosek")
+mosek_attachbuilder("~/bin/mosek/9.2/tools/platform/linux64x86/bin") # For linux
+# For Mac
+# mosek_attachbuilder("~/bin/mosek/9.2/tools/platform/osx64x86/bin")
+install.rmosek()
 
 ```
 ### Install dependent packages 
@@ -59,8 +51,6 @@ repos="http://download.mosek.com/R/8")
 # install.packages("devtools")
 devtools::install_github("jchen1981/TSFDR")
 ```
-
-
 
 ### An Example
 We illustrate the usage of tsfdr package using simulated data.
@@ -101,7 +91,7 @@ We illustrate the usage of tsfdr package using simulated data.
 ```
 ## R code
 ```
-rmarkdown::render("README.Rmd")
+rmarkdown::render("README.md")
 
 git add .  
 git commit -m "Lazy commit"  

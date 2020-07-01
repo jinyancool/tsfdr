@@ -393,38 +393,31 @@ summary {
 <h2>Installation</h2>
 <div id="please-install-mosek-first" class="section level3">
 <h3>Please install mosek first</h3>
-<p>** Following instruction is for macOS. For other systems, change names accordingly. **</p>
+<p>** Following instruction is for macOS/Linux. For other systems, change names accordingly. **</p>
 <pre><code>The following instruction was modified from
 https://docs.mosek.com/9.2/install/installation.html
 https://gist.github.com/mikelove/67ea44d5be5a053e599257fe357483dc
 
-1) Download mosek from here (** please download version 8 **):
-https://www.mosek.com/downloads/list/8/
+1) Download mosek from here (** Please download version 9.2.14 **):
+https://www.mosek.com/downloads/
 (I downloaded this to my ~/bin)
 
 cd ~/bin
-tar -xvf mosektoolsosx64x86.tar.bz2
+tar -xvf mosektoolslinux64x86.tar.bz2
 
-2) Add this to your ~/.bashrc
-export PATH=$PATH:~/bin/mosek/8/tools/platform/osx64x86/bin
-
-3) Get academic license:
+2) Get academic license:
 https://www.mosek.com/products/academic-licenses/
-Check email, put licsense file in ~/mosek
+Check email, put licsense file at: ~/mosek/mosek.lic
 (You need to create ~/mosek directory)
 
-4) Install:
+3) Install:
 
-export PKG_MOSEKHOME=~/bin/mosek/8/tools/platform/osx64x86
-export PKG_MOSEKLIB=mosek64
-
-5) For macOS Catalina, run &quot;xattr -dr com.apple.quarantine mosek&quot; to 
-prevent security exceptions.
-
-Then in R:
-install.packages(&quot;Rmosek&quot;, type=&quot;source&quot;, INSTALL_opts=&quot;--no-multiarch&quot;, 
-repos=&quot;http://download.mosek.com/R/8&quot;)
-
+install.packages(&quot;Rmosek&quot;)
+library(&quot;Rmosek&quot;)
+mosek_attachbuilder(&quot;~/bin/mosek/9.2/tools/platform/linux64x86/bin&quot;) # For linux
+# For Mac
+# mosek_attachbuilder(&quot;~/bin/mosek/9.2/tools/platform/osx64x86/bin&quot;)
+install.rmosek()
 </code></pre>
 </div>
 <div id="install-dependent-packages" class="section level3">
@@ -476,7 +469,7 @@ devtools::install_github(&quot;jchen1981/TSFDR&quot;)</code></pre>
 </div>
 <div id="r-code" class="section level2">
 <h2>R code</h2>
-<pre><code>rmarkdown::render(&quot;README.Rmd&quot;)
+<pre><code>rmarkdown::render(&quot;README.md&quot;)
 
 git add .  
 git commit -m &quot;Lazy commit&quot;  
