@@ -1,0 +1,12 @@
+Package: tsfdr
+Type: Package
+Title: Two-stage false discovery rate control for powerful confounder adjustment
+Version: 0.1
+Date: 2019-08-29
+Author: Jun Chen, Xianyang Zhang, Sangyoon Yi
+Maintainer: Jun Chen <chen.jun2@mayo.edu>
+Description: The package implements the two-stage false discovery rate control for more powerful confounder adjustment in the analysis of genomic data. The method is based on the idea that the confounder(s) usually affect part of the genomic features, and thus adjusting the confounder for ALL genomic features will be over-adjustment, leading to reduced statistical power.  The two-step procedure starts with performing the unadjusted analysis (first step - filtering) to narrow down the list of genomic features which are more likely to be affected by either the confounder or the variable of interest or both. In the second step, we conduct adjusted analysis on these 'top' candidates to reduce multiple testing burden.
+Depends: R (>= 3.2.0)
+Imports: stats, ggplot2, reshape2, qvalue, limma, doMC, pbivnorm, REBayes
+License: GPL-2
+RoxygenNote: 6.1.1
