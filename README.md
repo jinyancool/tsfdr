@@ -15,6 +15,7 @@ The function implements the two-stage false discovery rate control for more powe
 
 ```
 The following instruction was modified from
+https://docs.mosek.com/9.2/install/installation.html
 https://gist.github.com/mikelove/67ea44d5be5a053e599257fe357483dc
 
 1) Download mosek from here (** please download version 8 **):
