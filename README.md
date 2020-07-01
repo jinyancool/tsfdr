@@ -1,3 +1,6 @@
+# Notice
+This is a copy of [TSFDR](https://github.com/jchen1981/TSFDR) from JunChen.
+
 # tsfdr
 Two-stage false discovery rate control for confounder adjustment in genomic association studies
 
@@ -94,4 +97,12 @@ We illustrate the usage of tsfdr package using simulated data.
      sum(pos1 & truth)
      sum(pos2 & truth)
   
+```
+## R code
+```
+rmarkdown::render("README.Rmd")
+
+git add .  
+git commit -m "Lazy commit"  
+git push  
 ```
