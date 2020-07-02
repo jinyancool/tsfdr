@@ -1,5 +1,4 @@
-installmosek <- function(){
-  targetDir <- "~/bin"
+installmosek <- function(targetDir = "~/bin"){
   if(!dir.exists(targetDir)){
     dir.create(targetDir)
   }
