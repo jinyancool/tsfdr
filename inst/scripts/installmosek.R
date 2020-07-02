@@ -3,7 +3,7 @@ installmosek <- function(targetDir = "~/bin"){
     dir.create(targetDir)
   }
   if(!"Rmosek" %in% installed.packages()[,"Package"]) {
-    install.packages(new.packages)
+    install.packages("Rmosek")
   }
   switch(Sys.info()[['sysname']],
          Windows= {ostype <- "windows"},
